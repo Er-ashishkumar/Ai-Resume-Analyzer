@@ -11,7 +11,9 @@ def create_app():
     db.init_app(app)
 
     from app.routes.health import health_bp
+    from app.routes.upload import upload_bp
     app.register_blueprint(health_bp)
+    app.register_blueprint(upload_bp)
 
     from app import models
 
