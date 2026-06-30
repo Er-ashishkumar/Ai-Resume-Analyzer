@@ -1,0 +1,28 @@
+{
+  "programming_languages": [
+    "Python", "Java", "JavaScript", "TypeScript", "C++", "C", "C#", "Go", "Rust",
+    "PHP", "Ruby", "Swift", "Kotlin", "R", "MATLAB", "Scala", "Dart"
+  ],
+  "web_development": [
+    "HTML", "CSS", "React", "React.js", "Angular", "Vue", "Vue.js", "Node.js",
+    "Express", "Express.js", "Django", "Flask", "FastAPI", "Next.js", "Bootstrap",
+    "Tailwind", "Tailwind CSS", "jQuery", "REST API", "GraphQL"
+  ],
+  "databases": [
+    "MySQL", "PostgreSQL", "MongoDB", "SQLite", "Redis", "Oracle", "SQL Server",
+    "Firebase", "DynamoDB", "Cassandra", "MariaDB"
+  ],
+  "ai_ml": [
+    "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "Keras",
+    "Scikit-Learn", "OpenCV", "Pandas", "NumPy", "NLP", "Computer Vision",
+    "YOLO", "Hugging Face", "spaCy", "NLTK"
+  ],
+  "tools_platforms": [
+    "Git", "GitHub", "Docker", "Kubernetes", "AWS", "Azure", "GCP", "Linux",
+    "VS Code", "Jenkins", "CI/CD", "Postman", "Jira", "Figma"
+  ],
+  "core_concepts": [
+    "DSA", "Data Structures", "Algorithms", "OOP", "DBMS", "Operating Systems",
+    "Computer Networks", "System Design"
+  ]
+}
