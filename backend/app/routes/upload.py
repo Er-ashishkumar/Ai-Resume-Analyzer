@@ -1,9 +1,11 @@
 import os
 import uuid
+import json
 from flask import Blueprint, request, jsonify
 from app import db
 from app.models import Resume
 from app.services.parser import extract_text
+from app.services.skill_extractor import extract_skills
 
 upload_bp = Blueprint("upload", __name__)
 
@@ -33,10 +35,13 @@ def upload_resume():
     except Exception as e:
         return jsonify({"error": f"Failed to parse file: {str(e)}"}), 500
 
+    skills = extract_skills(extracted_text)
+
     resume = Resume(
         session_id=session_id,
         filename=file.filename,
         extracted_text=extracted_text,
+        skills_json=json.dumps(skills),
     )
     db.session.add(resume)
     db.session.commit()
@@ -46,4 +51,5 @@ def upload_resume():
         "session_id": session_id,
         "filename": resume.filename,
         "extracted_text": extracted_text,
+        "skills": skills,
     }), 201
