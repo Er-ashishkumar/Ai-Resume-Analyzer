@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "./services/api";
+import ResumeUpload from "./components/ResumeUpload";
 import "./App.css";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <h1>AI Resume Analyzer</h1>
       <p>{status}</p>
+      <ResumeUpload />
     </div>
   );
 }
