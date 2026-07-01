@@ -6,6 +6,7 @@ from app import db
 from app.models import Resume
 from app.services.parser import extract_text
 from app.services.skill_extractor import extract_skills
+from app.services.ats_scorer import calculate_ats_score
 
 upload_bp = Blueprint("upload", __name__)
 
@@ -36,12 +37,14 @@ def upload_resume():
         return jsonify({"error": f"Failed to parse file: {str(e)}"}), 500
 
     skills = extract_skills(extracted_text)
+    ats_result = calculate_ats_score(extracted_text, skills)
 
     resume = Resume(
         session_id=session_id,
         filename=file.filename,
         extracted_text=extracted_text,
         skills_json=json.dumps(skills),
+        ats_score=ats_result["total_score"],
     )
     db.session.add(resume)
     db.session.commit()
@@ -52,4 +55,7 @@ def upload_resume():
         "filename": resume.filename,
         "extracted_text": extracted_text,
         "skills": skills,
+        "ats_score": ats_result["total_score"],
+        "ats_breakdown": ats_result["breakdown"],
+        "suggestions": ats_result["suggestions"],
     }), 201

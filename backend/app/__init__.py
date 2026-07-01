@@ -12,8 +12,10 @@ def create_app():
 
     from app.routes.health import health_bp
     from app.routes.upload import upload_bp
+    from app.routes.match import match_bp
     app.register_blueprint(health_bp)
     app.register_blueprint(upload_bp)
+    app.register_blueprint(match_bp)
 
     from app import models
 
